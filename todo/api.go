@@ -109,7 +109,6 @@ func AddTodoAPI(token string, text string) (Todo, error) {
 func PromiseRemoveTodo(token string, id uint, p *promise.Promise) {
 	go func() {
 		err := RemoveTodoAPI(token, id)
-		println("remove", err.Error())
 		if err != nil {
 			println("error:", err.Error())
 			p.Reject(err.Error())
